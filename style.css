@@ -1,0 +1,19 @@
+.container {
+	width: 960px;
+}
+
+.jumbotron {
+	background-image: url("psychic.jpg");
+	height: 250px;
+	margin-bottom: auto;
+	}
+
+.panel-body {
+	background-color: black;
+	color: #00c2ff;
+	text-align: center;
+	font-family: "Brush Script MT", cursive;
+	font-size: 36px;
+	margin: auto;
+	height: 91px;
+}

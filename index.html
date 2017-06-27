@@ -2,13 +2,50 @@
 <html>
 <head>
 	<title>Psychic Game</title>
+
+	<link rel="stylesheet" type="text/css" href="reset.css">
+      <link rel="stylesheet" type="text/css" href="style.css">
+
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
-<body>
+<body style="background-color: black;">
 
-<h1>The Psychic Game</h1>
+<div class="container">
+      <div class="row">
+            <div class="col-md-12">
+                  <div class="jumbotron" style="margin: auto;">
+                  </div>
+            </div>
+      </div>
 
-<div id="game">
-<p>Guess What letter I'm thinking of...</p>
+<div class="panel panel-default">
+  <div class="panel-body">
+     <h1>Guess What Letter I'm thinking of...Press any letter key to begin!</h1>
+  </div>
+</div>
+  
+<div class="panel panel-default">
+  <div class="panel-body"  id="Wins">
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-body"  id="Losses">
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-body" id="Guesses">
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-body" id="game">
+  </div>
+</div>
+
 </div>
 <script type="text/javascript">
 
@@ -52,15 +89,22 @@ document.onkeyup = function(event) {
 		Guesses--;
 	}
 
-	
+	if (Guesses === 0)	{
+		Losses++;
+		resetGame();
+	}
 
 
-	var html = "<p>Guess What Letter I'm Thinking Of..." +
-	"<p>Wins: " + Wins + "</p>" +
-	"<p>Losses: " + Losses + "</p>" +
-	"<p>Guesses Left: " + Guesses + "</p>" +
-	"<p>Your Guesses So Far: " + userguesses.join(", ") + "</p>";
+	var html = "<p>Wins: " + Wins + "</p>" 
+	document.querySelector('#Wins').innerHTML = html;
 
+	var html = "<p>Losses: " + Losses + "</p>" 
+	document.querySelector('#Losses').innerHTML = html;
+
+	var html = "<p>Guesses Left: " + Guesses + "</p>" 
+	document.querySelector('#Guesses').innerHTML = html;
+
+	var html = "<p>Your Guesses So Far: " + userguesses.join(", ") + "</p>";
 	document.querySelector('#game').innerHTML = html;
 	
 }
